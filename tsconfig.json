@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        // позволяет делать привычный импорт без * as
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        // Для абсолютного импорта
+        "baseUrl": "."
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    }
+}
