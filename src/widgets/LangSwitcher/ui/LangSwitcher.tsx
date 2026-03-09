@@ -8,7 +8,7 @@ interface Props {
   className?: string;
 }
 
-const LangSwitcher: FC<Props> = ({className}) => {
+const LangSwitcher: FC<Props> = ({ className }) => {
   const { t, i18n } = useTranslation();
 
   const toggle = () => {
@@ -17,7 +17,11 @@ const LangSwitcher: FC<Props> = ({className}) => {
   };
 
   return (
-    <Button theme={ThemeButton.CLEAR} onClick={toggle} className={classNames(cls.langSwitcher, {}, [className])}>
+    <Button
+      theme={ThemeButton.CLEAR}
+      onClick={toggle}
+      className={classNames(cls.langSwitcher, {}, [className])}
+    >
       {t("Язык")}
     </Button>
   );
