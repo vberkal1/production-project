@@ -3,12 +3,17 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
+import i18next from "eslint-plugin-i18next";
 
 export default defineConfig([
   // Базовый конфиг
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js, react: pluginReact },
+    plugins: {
+      js,
+      react: pluginReact,
+      i18next,
+    },
     extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
   },
@@ -37,6 +42,32 @@ export default defineConfig([
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
           caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+      "i18next/no-literal-string": [
+        "error",
+        {
+          mode: "jsx-only", // Проверять только JSX разметку
+          "jsx-components": {
+            exclude: ["Trans"],
+          },
+          // Игнорировать определенные атрибуты в JSX
+          ignoreAttribute: [
+            "className",
+            "style",
+            "type",
+            "name",
+            "id",
+            "key",
+            "ref",
+            "data-testid",
+          ],
+          // Разрешить числа и спецсимволы
+          allow: [
+            "^\\d+$", // числа
+            "^[\\.,!?;:\\-]+$", // пунктуация
+            "^\\s+$", // пробелы
+          ],
         },
       ],
     },
