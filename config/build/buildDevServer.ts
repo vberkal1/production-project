@@ -6,5 +6,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     port: options.port,
     open: true,
     historyApiFallback: true,
+    // позволяет обновлять сайт при изменениях без перезагрузки
+    hot: true,
   };
 }
